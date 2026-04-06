@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+    <meta charset="UTF-8">
+    <title>variable-expression</title>
+</head>
+<body>
+<h1>Variable Expression demo</h1>
+<h2>User details:</h2>
+<div th:object="${user}">
+<!--    variable expression-->
+    <p> Name: <strong th:text="${user.name}"></strong></p>
+    <p> Name: <strong th:text="${user.email}"></strong></p>
+<!--    below are using selection expression which works on previously selected object-->
+    <p> Name: <strong th:text="*{role}"></strong></p>
+    <p> Name: <strong th:text="*{gender}"></strong></p>
+</div>
+
+</body>
+</html>

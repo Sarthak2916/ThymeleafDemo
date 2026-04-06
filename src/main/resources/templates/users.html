@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+
+<h1>Users</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>role</th>
+        <th>gender</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="users, userStat: ${users}">
+        <td th:text="${userStat.count}"></td>
+        <td th:text="${users.name}"></td>
+        <td th:text="${users.email}"></td>
+        <td th:text="${users.role}"></td>
+        <td th:text="${users.gender}"></td>
+        <td th:if="${users.role}=='admin'">Update</td>
+        <td th:if="${users.role}=='CEO'">Delete</td>
+        <td th:unless="${users.role}=='admin'">View</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
